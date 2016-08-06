@@ -1,0 +1,82 @@
+#better-browse {
+	position: relative;
+}
+#better-browse .caret {
+    border-top: 5px solid #E50914;
+}
+#better-browse span {
+	color: #E50914;
+	font-size: 16px;
+	font-weight: 700;	
+}
+#better-browse ul {
+	display: none;
+	position: absolute;
+	background-color: rgba(0,0,0,.9);
+	height: 200px;
+	overflow: scroll;
+	overflow-x: hidden;
+	padding: 20px;
+	border-top: 2px solid #fff;
+	width: 260px;
+}
+#better-browse:hover ul {
+	display: block;
+}
+#better-browse .triangle {
+	display: none;
+	content:'';
+	width: 0; 
+	height: 0; 
+	border-left: 8px solid transparent;
+	border-right: 8px solid transparent;
+	border-bottom: 8px solid #fff;
+	position: absolute;
+	bottom: 0;
+	left: 48px;
+}
+#better-browse:hover .triangle {
+	display: block;
+}
+input#bb-search {
+    width: calc(100% - 20px);
+    color: #000;
+    border-radius: 10px;
+    box-shadow: none;
+    border: 1px solid #cdcdcd;
+    padding: 4px 10px;
+    outline: 0!important;
+    display: inherit;
+    margin-bottom: 10px;
+}
+#better-browse ul li {
+    width: 100%;
+    line-height: 2em;
+    color: #fff;
+    list-style: none;
+	font-size: 12px;
+}
+#better-browse ul li a:hover {
+	text-decoration: underline;
+}
+
+/* Scrollbar */
+#better-browse ::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: 8px;
+}
+#better-browse ::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background-color: #E50914;
+    -webkit-box-shadow: 0 0 1px green;
+}
+#better-browse ::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+
+@media all and (max-width: 650px) {
+	#better-browse {
+		display: none;
+	}
+}

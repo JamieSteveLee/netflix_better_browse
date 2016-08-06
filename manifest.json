@@ -1,0 +1,22 @@
+{
+    "name": "Netflix Better Browse",
+    "manifest_version": 2,
+    "content_scripts": [
+        {
+        "matches": [
+            "https://www.netflix.com/*"
+        ],
+        "css": [
+            "style.css"
+        ],
+        "js": [
+            "jquery-3.1.0.min.js", "scripts.js"
+        ],
+         "run_at": "document_start"
+        }
+    ],
+    "icons": {
+        "48": "icon_48.png",
+        "128": "icon_128.png" },
+    "version":"1.0.1"
+}
