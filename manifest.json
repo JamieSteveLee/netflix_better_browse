@@ -1,6 +1,14 @@
 {
-    "name": "Netflix Better Browse",
     "manifest_version": 2,
+    "name": "Better Browse for Netflix",
+    "short_name": "Better Browse",
+    "version":"1.0.3",
+    "description": "Browse more Netflix categories",
+    "icons": {
+        "48": "icon_48.png",
+        "128": "icon_128.png"
+    },
+    "author": "Jamie Lee",
     "content_scripts": [
         {
         "matches": [
@@ -14,9 +22,5 @@
         ],
          "run_at": "document_start"
         }
-    ],
-    "icons": {
-        "48": "icon_48.png",
-        "128": "icon_128.png" },
-    "version":"1.0.2"
+    ]
 }

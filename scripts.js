@@ -5,7 +5,7 @@ $(window).bind("load", function() {
 		'<li id="better-browse"><span>Browse all</span><span class="caret" role="presentation"></span>'+
 		'<div class="triangle"></div>'+
 		'<ul>'+
-		'<input type="textbox" id="bb-search" placeholder="Type here" />'+
+		'<input type="textbox" id="bb-search" placeholder="Search..." />'+
 		'<li><a href="http://www.netflix.com/browse/genre/1365">Action &amp; Adventure</a></li>'+
 		'<li><a href="http://www.netflix.com/browse/genre/43040">Action Comedies</a></li>'+
 		'<li><a href="http://www.netflix.com/browse/genre/1568">Action Sci-Fi &amp; Fantasy</a></li>'+
