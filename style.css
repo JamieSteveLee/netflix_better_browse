@@ -13,7 +13,8 @@
 	display: none;
 	position: absolute;
 	background-color: rgba(0,0,0,.9);
-	height: 200px;
+	height: auto;
+	max-height: 212px;
 	overflow: scroll;
 	overflow-x: hidden;
 	padding: 20px;
