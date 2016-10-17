@@ -2,7 +2,7 @@
     "manifest_version": 2,
     "name": "Better Browse for Netflix",
     "short_name": "Better Browse",
-    "version":"1.0.3",
+    "version":"1.0.4",
     "description": "Browse more Netflix categories",
     "icons": {
         "48": "icon_48.png",
