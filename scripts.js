@@ -6,7 +6,9 @@ $(window).bind("load", function() {
 			'<li id="better-browse"><span>Browse all</span><span class="caret" role="presentation"></span>'+
 			'<div class="triangle"></div>'+
 			'<ul>'+
-			'<input type="textbox" id="bb-search" placeholder="Search..." />'+
+			'<form id="bb-form">'+
+			'<input type="textbox"  id="bb-search" autocomplete="off" placeholder="Search..." />'+
+			'</form>'+
 			'<li><a href="http://www.netflix.com/browse/genre/1365">Action &amp; Adventure</a></li>'+
 			'<li><a href="http://www.netflix.com/browse/genre/43040">Action Comedies</a></li>'+
 			'<li><a href="http://www.netflix.com/browse/genre/1568">Action Sci-Fi &amp; Fantasy</a></li>'+
@@ -222,9 +224,9 @@ $(window).bind("load", function() {
 		);
 
 		// Search box
-		var $rows = $('#better-browse li');
+		var $rows = $("#better-browse li");
 		
-		$('#bb-search').keyup(function() {
+		$("#bb-search").keyup(function() {
 		    var val = $.trim($(this).val()).replace(/ +/g, ' ').toLowerCase();
 		    
 		    $rows.show().filter(function() {
@@ -232,8 +234,20 @@ $(window).bind("load", function() {
 		        return !~text.indexOf(val);
 		    }).hide();
 		});
-		
-		console.log("MENU APPEND");
+
+		// Easter eggs
+		$("#bb-form").submit(function(event){
+			event.preventDefault();
+			
+			goToTitle("iasip", "https://www.netflix.com/title/70136141");
+			goToTitle("brba", "https://www.netflix.com/title/70143836");
+			goToTitle("ffly", "https://www.netflix.com/title/70202753");
+			goToTitle("king of spades", "https://www.netflix.com/title/70125231");
+			goToTitle("ram", "https://www.netflix.com/title/80014749");
+			
+			messageAlert("jambon", "Alright matey");
+		})
+
 	}
 
 	// Check if menu exists, if not, menu appears after clicking .profile-link
@@ -244,6 +258,20 @@ $(window).bind("load", function() {
 			appendMenu();
 			setTimeout(appendMenu, 10)
 		});
+	}
+
+	// Easter Egg functions
+	function goToTitle(code, url) {
+		if ( $( "#bb-search" ).val().toLowerCase() === code ) {
+			$(function(){
+				$(location).attr('href', url);
+			}); 
+		}
+	}
+	function messageAlert(code, message) {
+		if ( $( "#bb-search" ).val().toLowerCase() === code ) {
+			alert(message); 
+		}
 	}
 
 });

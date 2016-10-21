@@ -42,7 +42,7 @@
 input#bb-search {
     width: calc(100% - 20px);
     color: #fff;
-    border-radius: 3px;
+    border-radius: 0;
     background: transparent;
     box-shadow: none;
     border: 1px solid #cdcdcd;
