@@ -2,7 +2,7 @@
     "manifest_version": 2,
     "name": "Better Browse for Netflix",
     "short_name": "Better Browse",
-    "version":"1.0.6",
+    "version":"1.0.7",
     "description": "Browse more Netflix categories",
     "icons": {
         "48": "icon_48.png",
@@ -19,8 +19,9 @@
         ],
         "js": [
             "jquery-3.1.0.min.js",
-            "scripts.js",
-            "analytics.js"
+            "analytics.js",
+            "list.js",
+            "scripts.js"
         ],
          "run_at": "document_start"
         }
