@@ -95,8 +95,7 @@ $(window).bind("load", function() {
 	// Check if menu exists, if not, menu appears after clicking .profile-link
 	if( $("ul[role='navigation']").length ) {
 		appendMenu();
-	 }
-	else {
+	 } else {
 		$(".profile-link").click(function(){
 			appendMenu();
 			setTimeout(appendMenu, 10);
