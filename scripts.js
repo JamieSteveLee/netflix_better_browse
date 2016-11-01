@@ -18,7 +18,7 @@ $(window).bind("load", function() {
 			'</li>'
 		);
 
-		// Search box
+		//Search box
 		var $rows = $("#better-browse li");
 		
 		$("#bb-search").keyup(function() {
@@ -30,21 +30,25 @@ $(window).bind("load", function() {
 		    }).hide();
 		});
 
-		// Easter eggs
+		//Shortcuts
 		$("#bb-form").submit(function(event){
 			event.preventDefault();
 			
-			goToUrl("my list", "https://www.netflix.com/browse/my-list");
-			goToUrl("mylist", "https://www.netflix.com/browse/my-list");
-			goToUrl("me", "https://www.netflix.com/browse/my-list");
-			goToUrl("originals", "https://www.netflix.com/browse/originals");
-			goToUrl("new", "https://www.netflix.com/browse/new-arrivals");
+			goToUrl("my list", "/browse/my-list");
+			goToUrl("mylist", "/browse/my-list");
+			goToUrl("me", "/browse/my-list");
+			goToUrl("netflix originals", "/browse/originals");
+			goToUrl("originals", "/browse/originals");
+			goToUrl("original", "/browse/originals");
+			goToUrl("new arrivals", "/browse/new-arrivals");
+			goToUrl("new", "/browse/new-arrivals");
 
 			goToUrl("tv", "/browse/genre/83");
 			goToUrl("action", "/browse/genre/1365");
 			goToUrl("adventure", "/browse/genre/1365");
 			goToUrl("anime", "/browse/genre/7424");
 			goToUrl("british", "/browse/genre/10757");
+			goToUrl("classic", "/browse/genre/31574");
 			goToUrl("comedies", "/browse/genre/6548");
 			goToUrl("comedy", "/browse/genre/6548");
 			goToUrl("crime", "/browse/genre/5824");
@@ -56,6 +60,7 @@ $(window).bind("load", function() {
 			goToUrl("gay and lesbian", "/browse/genre/5977");
 			goToUrl("gay", "/browse/genre/5977");
 			goToUrl("lesbian", "/browse/genre/5977");
+			goToUrl("german", "/browse/genre/58886");
 			goToUrl("halloween", "/browse/genre/108663");
 			goToUrl("horror", "/browse/genre/8711");
 			goToUrl("independent", "/browse/genre/7077");
@@ -81,18 +86,19 @@ $(window).bind("load", function() {
 			goToUrl("thrillers", "/browse/genre/8933");
 			goToUrl("thriller", "/browse/genre/8933");
 
-			goToUrl("iasip", "https://www.netflix.com/title/70136141");
-			goToUrl("brba", "https://www.netflix.com/title/70143836");
-			goToUrl("ffly", "https://www.netflix.com/title/70202753");
-			goToUrl("king of spades", "https://www.netflix.com/title/70125231");
-			goToUrl("ram", "https://www.netflix.com/title/80014749");
+			goToUrl("always sunny", "/title/70136141");
+			goToUrl("iasip", "/title/70136141");
+			goToUrl("brba", "/title/70143836");
+			goToUrl("ffly", "/title/70202753");
+			goToUrl("king of spades", "/title/70125231");
+			goToUrl("ram", "/title/80014749");
 
 			messageAlert("jambon", "Oooh hello");
 		})
 
 	}
 
-	// Check if menu exists, if not, menu appears after clicking .profile-link
+	//Check if menu exists, if not, menu appears after clicking .profile-link
 	if( $("ul[role='navigation']").length ) {
 		appendMenu();
 	 } else {
@@ -101,12 +107,13 @@ $(window).bind("load", function() {
 			setTimeout(appendMenu, 10);
 		});
 	}
+	//Append menu after clicking back button after watching a film
 	$(document).on("click", ".player-back-to-browsing", function(){
 		appendMenu();
 		setTimeout(appendMenu, 100);
 	})
 
-	// Easter Egg functions
+	//Shortcut functions
 	function goToUrl(code, url) {
 		if ( $( "#bb-search" ).val().toLowerCase() === code ) {
 			$(function(){
