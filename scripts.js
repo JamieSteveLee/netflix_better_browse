@@ -6,6 +6,7 @@ $(window).bind("load", function() {
 		for (var i = 0; i <= hiddenCategories.length - 1; i++) {
 			bbList += '<li><a href="' + hiddenCategories[i].link + '">' + hiddenCategories[i].name + '</a></li>';
 		};
+		
 		$("ul[role='navigation']").append(
 			'<li id="better-browse"><span>Browse all</span><span class="caret" role="presentation"></span>'+
 			'<div class="triangle"></div>'+
@@ -93,7 +94,7 @@ $(window).bind("load", function() {
 			goToUrl("king of spades", "/title/70125231");
 			goToUrl("ram", "/title/80014749");
 
-			messageAlert("jambon", "Oooh hello");
+			messageAlert("jambon", "Hello you chump");
 		})
 
 	}
