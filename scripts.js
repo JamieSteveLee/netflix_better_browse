@@ -6,7 +6,7 @@ $(window).bind("load", function() {
 		for (var i = 0; i <= hiddenCategories.length - 1; i++) {
 			bbList += '<li><a href="' + hiddenCategories[i].link + '">' + hiddenCategories[i].name + '</a></li>';
 		};
-		
+
 		$("ul[role='navigation']").append(
 			'<li id="better-browse"><span>Browse all</span><span class="caret" role="presentation"></span>'+
 			'<div class="triangle"></div>'+
@@ -95,7 +95,15 @@ $(window).bind("load", function() {
 			goToUrl("ram", "/title/80014749");
 
 			messageAlert("jambon", "Hello you chump");
-		})
+
+			//Random category
+			if ( $( "#bb-search" ).val().toLowerCase() === "random" ) {
+				var randomCatNumber = Math.floor(Math.random()*(hiddenCategories.length + 1));
+				var randomCatUrl = hiddenCategories[randomCatNumber].link;
+				$(location).attr('href', randomCatUrl);
+			}
+
+		});
 
 	}
 
@@ -108,11 +116,12 @@ $(window).bind("load", function() {
 			setTimeout(appendMenu, 10);
 		});
 	}
+
 	//Append menu after clicking back button after watching a film
 	$(document).on("click", ".player-back-to-browsing", function(){
 		appendMenu();
 		setTimeout(appendMenu, 100);
-	})
+	});
 
 	//Shortcut functions
 	function goToUrl(code, url) {
