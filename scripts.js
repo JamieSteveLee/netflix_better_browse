@@ -90,7 +90,6 @@ $(window).bind("load", function() {
 			goToUrl("always sunny", "/title/70136141");
 			goToUrl("iasip", "/title/70136141");
 			goToUrl("brba", "/title/70143836");
-			messageAlert("ffly", "Curse your sudden but inevitable betrayal!");
 			goToUrl("ffly", "/title/70202753");
 			goToUrl("king of spades", "/title/70125231");
 			goToUrl("ram", "/title/80014749");
@@ -102,18 +101,6 @@ $(window).bind("load", function() {
 				var randomCatNumber = Math.floor(Math.random()*(hiddenCategories.length + 1));
 				var randomCatUrl = hiddenCategories[randomCatNumber].link;
 				$(location).attr('href', randomCatUrl);
-			}
-
-			//WS frontend devs
-			if ( $( "#bb-search" ).val().toLowerCase() === "wsfrontenddevs" ) {
-				$(".akira-header>.logo").css("color", "rebeccapurple");
-				$(".akira-header>ul .active>a").css("color", "rebeccapurple");
-				$(".akira-header>ul>li.active .caret").css("border-color", "rebeccapurple transparent transparent");
-				$("#better-browse span").css("color", "rebeccapurple");
-				$("#better-browse .caret").css("border-top", "5px solid rebeccapurple");
-				$("#better-browse span").css("color", "rebeccapurple");
-				$("#better-browse ul").css("background-color", "rebeccapurple");
-				$(".sub-menu").css("background-color", "rebeccapurple!important");
 			}
 
 		});
