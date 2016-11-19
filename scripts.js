@@ -90,6 +90,7 @@ $(window).bind("load", function() {
 			goToUrl("always sunny", "/title/70136141");
 			goToUrl("iasip", "/title/70136141");
 			goToUrl("brba", "/title/70143836");
+			messageAlert("ffly", "Curse your sudden but inevitable betrayal!");
 			goToUrl("ffly", "/title/70202753");
 			goToUrl("king of spades", "/title/70125231");
 			goToUrl("ram", "/title/80014749");
