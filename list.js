@@ -132,6 +132,10 @@ var hiddenCategories = [
 		link: "http://www.netflix.com/browse/genre/3960"
 	},
 	{
+		name: "Christmas Movies",
+		link: "https://www.netflix.com/browse/genre/107985"
+	},	
+	{
 		name: "Classic Action &amp; Adventure",
 		link: "http://www.netflix.com/browse/genre/46576"
 	},
@@ -307,6 +311,10 @@ var hiddenCategories = [
 		name: "Fantasy Movies",
 		link: "http://www.netflix.com/browse/genre/9744"
 	},
+	{
+		name: "Festive Favourites",
+		link: "https://www.netflix.com/browse/genre/107985"
+	},	
 	{
 		name: "Film Noir",
 		link: "http://www.netflix.com/browse/genre/7687"
