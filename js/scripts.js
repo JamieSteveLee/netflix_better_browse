@@ -116,6 +116,13 @@ $(window).bind("load", function() {
 
 		});
 
+		$('#better-browse ul li a').each(function(){
+			var thisCategory = $(this).text();
+			$(this).click(function(){
+				ga('send', 'event', 'Category', 'Click', thisCategory);
+			});
+		});
+
 	}
 
 	//Check if menu exists, if not, menu appears after clicking .profile-link
@@ -137,6 +144,7 @@ $(window).bind("load", function() {
 	//Shortcut functions
 	function goToUrl(code, url) {
 		if ( $( "#bb-search" ).val().toLowerCase() === code ) {
+			ga('send', 'event', 'Shortcut', 'InputCode', code);
 			$(function(){
 				$(location).attr('href', url);
 			}); 
@@ -144,6 +152,7 @@ $(window).bind("load", function() {
 	}
 	function messageAlert(code, message) {
 		if ( $( "#bb-search" ).val().toLowerCase() === code ) {
+			ga('send', 'event', 'Message', 'InputCode', code);
 			alert(message); 
 		}
 	}

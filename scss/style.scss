@@ -1,0 +1,90 @@
+#better-browse {
+	position: relative;
+
+	.caret {
+	    border-top: 5px solid #E50914;
+	}
+	span {
+		color: #E50914;
+		font-size: 16px;
+		font-weight: 700;	
+	}
+	ul {
+		display: none;
+		position: absolute;
+		background-color: rgba(0,0,0,.9);
+		height: auto;
+		max-height: 220px;
+		overflow: scroll;
+		overflow-x: hidden;
+		padding: 20px;
+		border-top: 2px solid #fff;
+		width: 260px;
+	}
+	.triangle {
+		display: none;
+		content:'';
+		width: 0; 
+		height: 0; 
+		border-left: 8px solid transparent;
+		border-right: 8px solid transparent;
+		border-bottom: 8px solid #fff;
+		position: absolute;
+		bottom: 0;
+		left: 48px;
+	}
+	ul li {
+	    width: 100%;
+	    line-height: 2em;
+	    color: #fff;
+	    list-style: none;
+		font-size: 12px;
+	}
+	ul li a:hover {
+		text-decoration: underline;
+	}
+	input#bb-search {
+	    width: calc(100% - 20px);
+	    color: #fff;
+	    border-radius: 0;
+	    background: transparent;
+	    box-shadow: none;
+	    border: 1px solid #cdcdcd;
+	    padding: 8px 10px;
+	    outline: 0!important;
+	    display: inherit;
+	    margin-bottom: 10px;
+	}
+
+	// Scrollbar
+	::-webkit-scrollbar {
+	    -webkit-appearance: none;
+	    width: 8px;
+	}
+	::-webkit-scrollbar-thumb {
+	    border-radius: 4px;
+	    background-color: #E50914;
+	    -webkit-box-shadow: 0 0 1px green;
+	}
+	::-webkit-scrollbar-corner {
+	  background: transparent;
+	}
+}
+
+#better-browse:hover{
+	ul {
+		display: block;
+	}
+	.triangle {
+		display: block;
+	}
+}
+
+
+
+
+@media all and (max-width: 650px) {
+	#better-browse {
+		display: none;
+	}
+}
