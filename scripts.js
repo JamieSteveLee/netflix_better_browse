@@ -4,7 +4,15 @@ $(window).bind("load", function() {
 	function appendMenu() {
 		var bbList = "";
 		for (var i = 0; i <= hiddenCategories.length - 1; i++) {
-			bbList += '<li><a href="' + hiddenCategories[i].link + '">' + hiddenCategories[i].name + '</a></li>';
+			var thisUrl = '';
+
+			if(hiddenCategories[i].url) {
+				thisUrl = hiddenCategories[i].url;
+			} else {
+				thisUrl = 'https://www.netflix.com/browse/genre/' + hiddenCategories[i].genreId;
+			}
+
+			bbList += '<li><a href="' + thisUrl + '">' + hiddenCategories[i].name + '</a></li>';
 		};
 
 		$("ul[role='navigation']").append(
