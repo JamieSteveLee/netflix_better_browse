@@ -56,6 +56,8 @@ $(window).bind("load", function() {
 			goToUrl("action", "/browse/genre/1365");
 			goToUrl("adventure", "/browse/genre/1365");
 			goToUrl("anime", "/browse/genre/7424");
+			goToUrl("book", "/browse/genre/9889");
+			goToUrl("books", "/browse/genre/9889");
 			goToUrl("british", "/browse/genre/10757");
 			goToUrl("classic", "/browse/genre/31574");
 			goToUrl("comedies", "/browse/genre/6548");
@@ -103,7 +105,7 @@ $(window).bind("load", function() {
 			goToUrl("king of spades", "/title/70125231");
 			goToUrl("ram", "/title/80014749");
 
-			messageAlert("jambon", "Hello you chump");
+			messageAlert("jambon", "Matey");
 
 			//Random category
 			if ( $( "#bb-search" ).val().toLowerCase() === "random" ) {
