@@ -40,96 +40,174 @@ $(window).bind("load", function() {
 		});
 
 		//Shortcuts
-		var inputSuccess = false;
 		$("#bb-form").submit(function(event){
 			event.preventDefault();
 
 			var inputCode = $( "#bb-search" ).val().toLowerCase();
-			inputSuccess = false;
-			
-			goToUrl("my list", "/browse/my-list");
-			goToUrl("mylist", "/browse/my-list");
-			goToUrl("me", "/browse/my-list");
-			goToUrl("netflix originals", "/browse/originals");
-			goToUrl("originals", "/browse/originals");
-			goToUrl("original", "/browse/originals");
-			goToUrl("new arrivals", "/browse/new-arrivals");
-			goToUrl("new", "/browse/new-arrivals");
-			goToUrl("donottest", "/DoNotTest");
 
-			goToUrl("tv", "/browse/genre/83");
-			goToUrl("action", "/browse/genre/1365");
-			goToUrl("adventure", "/browse/genre/1365");
-			goToUrl("anime", "/browse/genre/7424");
-			goToUrl("book", "/browse/genre/9889");
-			goToUrl("books", "/browse/genre/9889");
-			goToUrl("british", "/browse/genre/10757");
-			goToUrl("classic", "/browse/genre/31574");
-			goToUrl("comedies", "/browse/genre/6548");
-			goToUrl("comedy", "/browse/genre/6548");
-			goToUrl("controversial", "/browse/genre/100036");
-			goToUrl("crime", "/browse/genre/5824");
-			goToUrl("cult", "/browse/genre/7627");
-			goToUrl("dark", "/browse/genre/100037");
-			goToUrl("documentaries", "/browse/genre/6839");
-			goToUrl("docs", "/browse/genre/6839");
-			goToUrl("dramas", "/browse/genre/5763");
-			goToUrl("drama", "/browse/genre/5763");
-			goToUrl("gay and lesbian", "/browse/genre/5977");
-			goToUrl("gay", "/browse/genre/5977");
-			goToUrl("lesbian", "/browse/genre/5977");
-			goToUrl("german", "/browse/genre/58886");
-			goToUrl("halloween", "/browse/genre/108663");
-			goToUrl("horror", "/browse/genre/8711");
-			goToUrl("independent", "/browse/genre/7077");
-			goToUrl("indie", "/browse/genre/7077");
-			goToUrl("international", "/browse/genre/78367");
-			goToUrl("foreign", "/browse/genre/78367");
-			goToUrl("kids and family", "/browse/genre/783");
-			goToUrl("kids", "/browse/genre/783");
-			goToUrl("family", "/browse/genre/783");
-			goToUrl("music", "1701");
-			goToUrl("musicals", "/browse/genre/13335");
-			goToUrl("musical", "/browse/genre/13335");
-			goToUrl("romance", "/browse/genre/8883");
-			goToUrl("sci-fi", "/browse/genre/1492");
-			goToUrl("sci fi", "/browse/genre/1492");
-			goToUrl("scifi", "/browse/genre/1492");
-			goToUrl("special interest", "/browse/genre/6814");
-			goToUrl("sports", "/browse/genre/4370");
-			goToUrl("sport", "/browse/genre/4370");
-			goToUrl("talk shows and stand-up", "/browse/genre/1516534");
-			goToUrl("talk shows", "/browse/genre/1516534");
-			goToUrl("stand-up", "/browse/genre/1516534");
-			goToUrl("standup", "/browse/genre/1516534");
-			goToUrl("thrillers", "/browse/genre/8933");
-			goToUrl("thriller", "/browse/genre/8933");
-
-			goToUrl("fassbender", "/browse/person/30036344");
-
-			goToUrl("always sunny", "/title/70136141");
-			goToUrl("iasip", "/title/70136141");
-			goToUrl("brba", "/title/70143836");
-			messageAlert("ffly", "Curse your sudden but inevitable betrayal!");
-			goToUrl("ffly", "/title/70202753");
-			goToUrl("king of spades", "/title/70125231");
-			goToUrl("ram", "/title/80014749");
-
-			messageAlert("jambon", "Matey");
-			messageAlert("bb-about", "version: 1.1.1");
-
-			//Random category
-			if ( inputCode === "random" || inputCode === "rand" ) {
-				var randomCatNumber = Math.floor(Math.random()*(hiddenCategories.length + 1));
-				var randomCatUrl = '/browse/genre/' + hiddenCategories[randomCatNumber].genreId;
-				inputSuccess = true;
-				ga('send', 'event', 'Shortcut', 'InputCode', inputCode);
-				$(location).attr('href', randomCatUrl);
+			switch(inputCode) {
+				case 'my list':
+				case 'mylist':
+				case 'me':
+					goToUrl(inputCode, '/browse/my-list');
+					break;
+				case 'netflix originals':
+				case 'originals':
+				case 'original':
+					goToUrl(inputCode, '/browse/originals');
+					break;
+				case 'new arrivals':
+				case 'new':
+					goToUrl(inputCode, '/browse/new-arrivals');
+					break;
+				case 'donottest':
+					goToUrl(inputCode, '/DoNotTest');
+					break;
+				case 'tv':
+					goToUrl(inputCode, '/browse/genre/83');
+					break;
+				case 'action':
+				case 'adventure':
+					goToUrl(inputCode, '/browse/genre/1365');
+					break;
+				case 'anime':
+					goToUrl(inputCode, '/browse/genre/7424');
+					break;
+				case 'book':
+				case 'books':
+					goToUrl(inputCode, '/browse/genre/9889');
+					break;
+				case 'british':
+					goToUrl(inputCode, '/browse/genre/10757');
+					break;
+				case 'classic':
+					goToUrl(inputCode, '/browse/genre/31574');
+					break;
+				case 'comedies':
+				case 'comedy':
+					goToUrl(inputCode, '/browse/genre/6548');
+					break;
+				case 'controversial':
+					goToUrl(inputCode, '/browse/genre/100036');
+					break;
+				case 'crime':
+					goToUrl(inputCode, '/browse/genre/5824');
+					break;
+				case 'cult':
+					goToUrl(inputCode, '/browse/genre/7627');
+					break;
+				case 'dark':
+					goToUrl(inputCode, '/browse/genre/100037');
+					break;
+				case 'disney':
+					goToUrl(inputCode, '/browse/genre/67673');
+					break;
+				case 'documentaries':
+				case 'docs':
+					goToUrl(inputCode, '/browse/genre/6839');
+					break;
+				case 'dramas':
+				case 'drama':
+					goToUrl(inputCode, '/browse/genre/5763');
+					break;
+				case 'gay and lesbian':
+				case 'gay':
+				case 'lesbian':
+					goToUrl(inputCode, '/browse/genre/5977');
+					break;
+				case 'german':
+					goToUrl(inputCode, '/browse/genre/58886');
+					break;
+				case 'halloween':
+					goToUrl(inputCode, '/browse/genre/108663');
+					break;
+				case 'horror':
+					goToUrl(inputCode, '/browse/genre/8711');
+					break;
+				case 'independent':
+				case 'indie':
+					goToUrl(inputCode, '/browse/genre/7077');
+					break;
+				case 'international':
+				case 'foreign':
+					goToUrl(inputCode, '/browse/genre/78367');
+					break;
+				case 'kids and family':
+				case 'kids':
+				case 'family':
+					goToUrl(inputCode, '/browse/genre/783');
+					break;
+				case 'music':
+					goToUrl(inputCode, '/browse/genre/1701');
+					break;
+				case 'musicals':
+				case 'musical':
+					goToUrl(inputCode, '/browse/genre/13335');
+					break;
+				case 'romance':
+					goToUrl(inputCode, '/browse/genre/8883');
+					break;
+				case 'sci-fi':
+				case 'sci fi':
+				case 'scifi':
+					goToUrl(inputCode, '/browse/genre/1492');
+					break;
+				case 'special interest':
+					goToUrl(inputCode, '/browse/genre/6814');
+					break;
+				case 'sports':
+				case 'sport':
+					goToUrl(inputCode, '/browse/genre/4370');
+					break;
+				case 'talk shows and stand-up':
+				case 'talk shows':
+				case 'stand-up':
+				case 'standup':
+					goToUrl(inputCode, '/browse/genre/1516534');
+					break;
+				case 'thrillers':
+				case 'thriller':
+					goToUrl(inputCode, '/browse/genre/8933');
+					break;
+				case 'fassbender':
+					goToUrl(inputCode, '/browse/person/30036344');
+					break;
+				case 'always sunny':
+				case 'iasip':
+					goToUrl(inputCode, '/title/70136141');
+					break;
+				case 'brba':
+					goToUrl(inputCode, '/title/70143836');
+					break;
+				case 'peepshow':
+					goToUrl(inputCode, '/title/70217140');
+					break;
+				case 'ffly':
+					messageAlert(inputCode, 'Curse your sudden but inevitable betrayal!');
+					goToUrl(inputCode, '/title/70202753');
+					break;
+				case 'ram':
+					goToUrl(inputCode, '/title/80014749');
+					break;
+				case 'jambon':
+					messageAlert(inputCode, 'Matey');
+					break;
+				case 'bb-about':
+					messageAlert(inputCode, 'Created by Jamie Lee\nversion: 1.1.1');
+					break;
+				case 'test':
+					messageAlert(inputCode, 'test working');
+					break;
+				case 'random':
+				case 'rand':
+					var randomCatNumber = Math.floor(Math.random()*(hiddenCategories.length + 1));
+					var randomCatUrl = '/browse/genre/' + hiddenCategories[randomCatNumber].genreId;
+					ga('send', 'event', 'Shortcut', 'InputCode', inputCode);
+					$(location).attr('href', randomCatUrl);
+				default:
+					ga('send', 'event', 'Mistype', 'InputCode', inputCode);
+					break;
 			}
-
-			// if (!inputSuccess) {
-			// 	ga('send', 'event', 'Mistype', 'InputCode', inputCode);
-			// }
 
 		});
 
@@ -160,20 +238,14 @@ $(window).bind("load", function() {
 
 	//Shortcut functions
 	function goToUrl(code, url) {
-		if ( $( "#bb-search" ).val().toLowerCase() === code ) {
-			inputSuccess = true;
-			ga('send', 'event', 'Shortcut', 'InputCode', code);
-			$(function(){
-				$(location).attr('href', url);
-			}); 
-		}
+		ga('send', 'event', 'Shortcut', 'InputCode', code);
+		$(function(){
+			$(location).attr('href', url);
+		}); 
 	}
 	function messageAlert(code, message) {
-		if ( $( "#bb-search" ).val().toLowerCase() === code ) {
-			inputSuccess = true;
-			ga('send', 'event', 'Message', 'InputCode', code);
-			alert(message);
-		}
+		ga('send', 'event', 'Message', 'InputCode', code);
+		alert(message);
 	}
 
 });
