@@ -1,5 +1,11 @@
 $(window).bind("load", function() {
 
+	var mainNavBar = $("ul[role='navigation']");
+
+	if( $("ul#global-header").length ) {
+	 	mainNavBar = $("ul#global-header");
+	 }
+
 	//Insert better browse into navigation bar
 	function appendMenu() {
 		var bbList = "";
@@ -14,8 +20,7 @@ $(window).bind("load", function() {
 
 			bbList += '<li><a href="' + thisUrl + '">' + hiddenCategories[i].name + '</a></li>';
 		};
-
-		$("ul[role='navigation']").append(
+		$(mainNavBar).append(
 			'<li id="better-browse"><span>Browse all</span><span class="caret" role="presentation"></span>'+
 			'<div class="triangle"></div>'+
 			'<ul>'+
@@ -59,6 +64,10 @@ $(window).bind("load", function() {
 				case 'new arrivals':
 				case 'new':
 					goToUrl(inputCode, '/browse/new-arrivals');
+					break;
+				case 'activity':
+				case 'viewingactivity':
+					goToUrl(inputCode, '/viewingactivity');
 					break;
 				case 'donottest':
 					goToUrl(inputCode, '/DoNotTest');
@@ -195,9 +204,6 @@ $(window).bind("load", function() {
 				case 'bb-about':
 					messageAlert(inputCode, 'Created by Jamie Lee\nversion: 1.1.1');
 					break;
-				case 'test':
-					messageAlert(inputCode, 'test working');
-					break;
 				case 'random':
 				case 'rand':
 					var randomCatNumber = Math.floor(Math.random()*(hiddenCategories.length + 1));
@@ -206,7 +212,6 @@ $(window).bind("load", function() {
 					$(location).attr('href', randomCatUrl);
 				default:
 					ga('send', 'event', 'Mistype', 'InputCode', inputCode);
-					break;
 			}
 
 		});
@@ -223,10 +228,14 @@ $(window).bind("load", function() {
 	//Check if menu exists, if not, menu appears after clicking .profile-link
 	if( $("ul[role='navigation']").length ) {
 		appendMenu();
+	 } else if ($("ul#global-header").length) {
+	 	appendMenu();
 	 } else {
 		$(".profile-link").click(function(){
-			appendMenu();
-			setTimeout(appendMenu, 10);
+			setTimeout(function(){
+				mainNavBar = $("ul[role='navigation']");
+				appendMenu();
+			}, 10)
 		});
 	}
 
