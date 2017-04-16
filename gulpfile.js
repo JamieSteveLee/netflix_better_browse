@@ -2,6 +2,7 @@ var gulp = require('gulp');
 var sass = require('gulp-sass');
 var uglify = require('gulp-uglify');
 var concat = require('gulp-concat');
+var zip = require('gulp-zip');
 
 gulp.task('styles', function() {
     gulp.src('scss/**/*.scss')
@@ -14,6 +15,12 @@ gulp.task('scripts', function() {
     .pipe(concat('betterbrowse.js'))
     .pipe(uglify())
     .pipe(gulp.dest('.'));
+});
+
+gulp.task('zip', function() {
+  return gulp.src(['manifest.json', '*.png', 'background.js', 'betterbrowse.js', 'inject.js', 'style.css'])
+    .pipe(zip('netflix_better_browse.zip'))
+    .pipe(gulp.dest(''));
 });
 
 //Watch task
