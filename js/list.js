@@ -192,6 +192,10 @@ var hiddenCategories = [
 		genreId: '10118'
 	},
 	{
+		name: 'Controversial',
+		genreId: '100036'
+	},
+	{
 		name: 'Country &amp; Western/Folk',
 		genreId: '1105'
 	},
@@ -242,6 +246,10 @@ var hiddenCategories = [
 	{
 		name: 'Cult TV Shows',
 		genreId: '74652'
+	},
+	{
+		name: 'Dark',
+		genreId: '100037'
 	},
 	{
 		name: 'Dark Comedies',
@@ -374,6 +382,10 @@ var hiddenCategories = [
 	{
 		name: 'Gangster Movies',
 		genreId: '31851'
+	},
+	{
+		name: 'Gay &amp; Lesbian Movies',
+		genreId: '5977'
 	},
 	{
 		name: 'Gay &amp; Lesbian Dramas',

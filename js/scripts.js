@@ -40,8 +40,12 @@ $(window).bind("load", function() {
 		});
 
 		//Shortcuts
+		var inputSuccess = false;
 		$("#bb-form").submit(function(event){
 			event.preventDefault();
+
+			var inputCode = $( "#bb-search" ).val().toLowerCase();
+			inputSuccess = false;
 			
 			goToUrl("my list", "/browse/my-list");
 			goToUrl("mylist", "/browse/my-list");
@@ -51,6 +55,7 @@ $(window).bind("load", function() {
 			goToUrl("original", "/browse/originals");
 			goToUrl("new arrivals", "/browse/new-arrivals");
 			goToUrl("new", "/browse/new-arrivals");
+			goToUrl("donottest", "/DoNotTest");
 
 			goToUrl("tv", "/browse/genre/83");
 			goToUrl("action", "/browse/genre/1365");
@@ -62,8 +67,10 @@ $(window).bind("load", function() {
 			goToUrl("classic", "/browse/genre/31574");
 			goToUrl("comedies", "/browse/genre/6548");
 			goToUrl("comedy", "/browse/genre/6548");
+			goToUrl("controversial", "/browse/genre/100036");
 			goToUrl("crime", "/browse/genre/5824");
 			goToUrl("cult", "/browse/genre/7627");
+			goToUrl("dark", "/browse/genre/100037");
 			goToUrl("documentaries", "/browse/genre/6839");
 			goToUrl("docs", "/browse/genre/6839");
 			goToUrl("dramas", "/browse/genre/5763");
@@ -81,6 +88,7 @@ $(window).bind("load", function() {
 			goToUrl("kids and family", "/browse/genre/783");
 			goToUrl("kids", "/browse/genre/783");
 			goToUrl("family", "/browse/genre/783");
+			goToUrl("music", "1701");
 			goToUrl("musicals", "/browse/genre/13335");
 			goToUrl("musical", "/browse/genre/13335");
 			goToUrl("romance", "/browse/genre/8883");
@@ -97,6 +105,8 @@ $(window).bind("load", function() {
 			goToUrl("thrillers", "/browse/genre/8933");
 			goToUrl("thriller", "/browse/genre/8933");
 
+			goToUrl("fassbender", "/browse/person/30036344");
+
 			goToUrl("always sunny", "/title/70136141");
 			goToUrl("iasip", "/title/70136141");
 			goToUrl("brba", "/title/70143836");
@@ -106,13 +116,20 @@ $(window).bind("load", function() {
 			goToUrl("ram", "/title/80014749");
 
 			messageAlert("jambon", "Matey");
+			messageAlert("bb-about", "version: 1.1.1");
 
 			//Random category
-			if ( $( "#bb-search" ).val().toLowerCase() === "random" ) {
+			if ( inputCode === "random" || inputCode === "rand" ) {
 				var randomCatNumber = Math.floor(Math.random()*(hiddenCategories.length + 1));
-				var randomCatUrl = hiddenCategories[randomCatNumber].link;
+				var randomCatUrl = '/browse/genre/' + hiddenCategories[randomCatNumber].genreId;
+				inputSuccess = true;
+				ga('send', 'event', 'Shortcut', 'InputCode', inputCode);
 				$(location).attr('href', randomCatUrl);
 			}
+
+			// if (!inputSuccess) {
+			// 	ga('send', 'event', 'Mistype', 'InputCode', inputCode);
+			// }
 
 		});
 
@@ -144,6 +161,7 @@ $(window).bind("load", function() {
 	//Shortcut functions
 	function goToUrl(code, url) {
 		if ( $( "#bb-search" ).val().toLowerCase() === code ) {
+			inputSuccess = true;
 			ga('send', 'event', 'Shortcut', 'InputCode', code);
 			$(function(){
 				$(location).attr('href', url);
@@ -152,8 +170,9 @@ $(window).bind("load", function() {
 	}
 	function messageAlert(code, message) {
 		if ( $( "#bb-search" ).val().toLowerCase() === code ) {
+			inputSuccess = true;
 			ga('send', 'event', 'Message', 'InputCode', code);
-			alert(message); 
+			alert(message);
 		}
 	}
 
