@@ -228,6 +228,10 @@ var hiddenCategories = [
 		genreId: '26146'
 	},
 	{
+		name: 'Critically-acclaimed Movies',
+		genreId: '3979'
+	},
+	{
 		name: 'Cult Comedies',
 		genreId: '9434'
 	},
@@ -434,6 +438,10 @@ var hiddenCategories = [
 	{
 		name: 'Indian Movies',
 		genreId: '10463'
+	},
+	{
+		name: 'International Movies',
+		genreId: '78367'
 	},
 	{
 		name: 'Irish Movies',

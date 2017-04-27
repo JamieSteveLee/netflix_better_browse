@@ -72,6 +72,13 @@ $(window).bind("load", function() {
 				case 'donottest':
 					goToUrl(inputCode, '/DoNotTest');
 					break;
+				case 'seen':
+				case 'rated':
+					goToUrl(inputCode, '/MoviesYouveSeen');
+					break;
+				case 'subtitles':
+					goToUrl(inputCode, '/SubtitlePreferences');
+					break;
 				case 'tv':
 					goToUrl(inputCode, '/browse/genre/83');
 					break;
@@ -181,19 +188,27 @@ $(window).bind("load", function() {
 				case 'fassbender':
 					goToUrl(inputCode, '/browse/person/30036344');
 					break;
-				case 'always sunny':
-				case 'iasip':
-					goToUrl(inputCode, '/title/70136141');
+				case 'louis ck':
+				case 'louise ck':
+					goToUrl(inputCode, '/browse/person/20028446');
 					break;
+
 				case 'brba':
 					goToUrl(inputCode, '/title/70143836');
-					break;
-				case 'peepshow':
-					goToUrl(inputCode, '/title/70217140');
 					break;
 				case 'ffly':
 					messageAlert(inputCode, 'Curse your sudden but inevitable betrayal!');
 					goToUrl(inputCode, '/title/70202753');
+					break;
+				case 'always sunny':
+				case 'iasip':
+					goToUrl(inputCode, '/title/70136141');
+					break;
+				case 'office':
+					goToUrl(inputCode, '/title/70136112');
+					break;
+				case 'peepshow':
+					goToUrl(inputCode, '/title/70217140');
 					break;
 				case 'ram':
 					goToUrl(inputCode, '/title/80014749');
@@ -202,7 +217,7 @@ $(window).bind("load", function() {
 					messageAlert(inputCode, 'Matey');
 					break;
 				case 'bb-about':
-					messageAlert(inputCode, 'Created by Jamie Lee\nversion: 1.1.1');
+					messageAlert(inputCode, 'Better Browse for Netflix\nversion: 1.1.3');
 					break;
 				case 'random':
 				case 'rand':
