@@ -196,10 +196,6 @@ $(window).bind("load", function() {
 				case 'brba':
 					goToUrl(inputCode, '/title/70143836');
 					break;
-				case 'ffly':
-					messageAlert(inputCode, 'Curse your sudden but inevitable betrayal!');
-					goToUrl(inputCode, '/title/70202753');
-					break;
 				case 'always sunny':
 				case 'iasip':
 					goToUrl(inputCode, '/title/70136141');
@@ -215,9 +211,6 @@ $(window).bind("load", function() {
 					break;
 				case 'jambon':
 					messageAlert(inputCode, 'Matey');
-					break;
-				case 'bb-about':
-					messageAlert(inputCode, 'Better Browse for Netflix\nversion: 1.1.3');
 					break;
 				case 'random':
 				case 'rand':
