@@ -2,30 +2,30 @@ $netflix-red: #E50914;
 
 #global-header {
 	#better-browse {
-	    line-height: 70px;
-	    float: right;
+		line-height: 70px;
+		float: right;
 		padding: 0px 38px;
-	    margin-top: 2px;
+		margin-top: 2px;
 	}
 }
 
 #better-browse {
 	position: relative;
 	list-style: none;
-    padding: 0 18px;
-    cursor: pointer;
-    height: 100%;
-    display: flex;
-    align-items: center;
+	padding: 30px 18px;
+	cursor: pointer;
+	height: 100%;
+	display: flex;
+	align-items: center;
 
 	.caret {
-	    border-top: 5px solid $netflix-red;
-	    width: 0;
-	    height: 0;
-	    border-style: solid;
-	    border-width: 5px 5px 0 5px;
-	    border-color: $netflix-red transparent transparent transparent;
-        margin-left: 4px;
+		border-top: 5px solid $netflix-red;
+		width: 0;
+		height: 0;
+		border-style: solid;
+		border-width: 5px 5px 0 5px;
+		border-color: $netflix-red transparent transparent transparent;
+		margin-left: 4px;
 	}
 	span {
 		color: $netflix-red;
@@ -35,7 +35,7 @@ $netflix-red: #E50914;
 	ul {
 		display: none;
 		position: absolute;
-	    top: 62px;
+		top: 62px;
 		background-color: rgba(0,0,0,.9);
 		height: auto;
 		max-height: 220px;
@@ -57,10 +57,10 @@ $netflix-red: #E50914;
 		left: 48px;
 	}
 	ul li {
-	    width: 100%;
-	    line-height: 2em;
-	    color: #fff;
-	    list-style: none;
+		width: 100%;
+		line-height: 2em;
+		color: #fff;
+		list-style: none;
 		font-size: 1.2rem;
 		margin-left: 0;
 
@@ -76,28 +76,28 @@ $netflix-red: #E50914;
 		text-decoration: underline;
 	}
 	input#bb-search {
-	    width: calc(100% - 20px);
-	    font-size: 14px;
-	    color: #fff;
-	    border-radius: 0;
-	    background: transparent;
-	    box-shadow: none;
-	    border: 1px solid #cdcdcd;
-	    padding: 8px 10px;
-	    outline: 0!important;
-	    display: inherit;
-	    margin-bottom: 10px;
+		width: calc(100% - 20px);
+		font-size: 14px;
+		color: #fff;
+		border-radius: 0;
+		background: transparent;
+		box-shadow: none;
+		border: 1px solid #cdcdcd;
+		padding: 8px 10px;
+		outline: 0!important;
+		display: inherit;
+		margin-bottom: 10px;
 	}
 
 	// Scrollbar
 	::-webkit-scrollbar {
-	    -webkit-appearance: none;
-	    width: 8px;
+		-webkit-appearance: none;
+		width: 8px;
 	}
 	::-webkit-scrollbar-thumb {
-	    border-radius: 4px;
-	    background-color: $netflix-red;
-	    -webkit-box-shadow: 0 0 1px green;
+		border-radius: 4px;
+		background-color: $netflix-red;
+		-webkit-box-shadow: 0 0 1px green;
 	}
 	::-webkit-scrollbar-corner {
 	  background: transparent;

@@ -3,8 +3,8 @@ $(window).bind("load", function() {
 	var mainNavBar = $("ul[role='navigation']");
 
 	if( $("ul#global-header").length ) {
-	 	mainNavBar = $("ul#global-header");
-	 }
+		mainNavBar = $("ul#global-header");
+	}
 
 	//Insert better browse into navigation bar
 	function appendMenu() {
@@ -36,12 +36,12 @@ $(window).bind("load", function() {
 		var $rows = $("#better-browse li");
 		
 		$("#bb-search").keyup(function() {
-		    var val = $.trim($(this).val()).replace(/ +/g, ' ').toLowerCase();
-		    
-		    $rows.show().filter(function() {
-		        var text = $(this).text().replace(/\s+/g, ' ').toLowerCase();
-		        return !~text.indexOf(val);
-		    }).hide();
+			var val = $.trim($(this).val()).replace(/ +/g, ' ').toLowerCase();
+			
+			$rows.show().filter(function() {
+				var text = $(this).text().replace(/\s+/g, ' ').toLowerCase();
+				return !~text.indexOf(val);
+			}).hide();
 		});
 
 		//Shortcuts
@@ -71,6 +71,9 @@ $(window).bind("load", function() {
 					break;
 				case 'donottest':
 					goToUrl(inputCode, '/DoNotTest');
+					break;
+				case 'home':
+					goToUrl(inputCode, '/');
 					break;
 				case 'seen':
 				case 'rated':
@@ -129,6 +132,7 @@ $(window).bind("load", function() {
 				case 'gay and lesbian':
 				case 'gay':
 				case 'lesbian':
+				case 'lgbt':
 					goToUrl(inputCode, '/browse/genre/5977');
 					break;
 				case 'german':
@@ -193,6 +197,15 @@ $(window).bind("load", function() {
 					goToUrl(inputCode, '/browse/person/20028446');
 					break;
 
+				case '4k':
+					goToUrl(inputCode, '/search?q=4k&suggestionId=1800000_merch');
+					break;
+				case 'atmos':
+					goToUrl(inputCode, '/search?q=atmos&suggestionId=2200000_merch');
+					break;
+				case 'hdr':
+					goToUrl(inputCode, '/search?q=hdr&suggestionId=1900000_merch');
+					break;
 				case 'brba':
 					goToUrl(inputCode, '/title/70143836');
 					break;
@@ -210,7 +223,7 @@ $(window).bind("load", function() {
 					goToUrl(inputCode, '/title/80014749');
 					break;
 				case 'jambon':
-					messageAlert(inputCode, 'Matey');
+					messageAlert(inputCode, 'Hello there');
 					break;
 				case 'random':
 				case 'rand':
@@ -218,10 +231,10 @@ $(window).bind("load", function() {
 					var randomCatUrl = '/browse/genre/' + hiddenCategories[randomCatNumber].genreId;
 					ga('send', 'event', 'Shortcut', 'InputCode', inputCode);
 					$(location).attr('href', randomCatUrl);
+					break;
 				default:
 					ga('send', 'event', 'Mistype', 'InputCode', inputCode);
 			}
-
 		});
 
 		$('#better-browse ul li a').each(function(){
@@ -237,7 +250,7 @@ $(window).bind("load", function() {
 	if( $("ul[role='navigation']").length ) {
 		appendMenu();
 	 } else if ($("ul#global-header").length) {
-	 	appendMenu();
+		appendMenu();
 	 } else {
 		$(".profile-link").click(function(){
 			setTimeout(function(){
@@ -248,9 +261,11 @@ $(window).bind("load", function() {
 	}
 
 	//Append menu after clicking back button after watching a film
-	$(document).on("click", ".player-back-to-browsing", function(){
-		appendMenu();
-		setTimeout(appendMenu, 100);
+	$(document).on("click", ".button-bvuiExit, .WatchNext-action-buttons a:first-child", function(){
+		setTimeout(function() {
+			mainNavBar = $("ul[role='navigation']");
+			appendMenu();
+		}, 100);
 	});
 
 	//Shortcut functions
