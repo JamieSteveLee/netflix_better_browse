@@ -1,13 +1,22 @@
 $(window).bind("load", function() {
 
-	var mainNavBar = $("ul[role='navigation']");
-
-	if( $("ul#global-header").length ) {
-		mainNavBar = $("ul#global-header");
+	//Check which version of the nav bar is being used
+	function checkNavBar() {
+		if($('ul.tabbed-primary-navigation').length) {
+			return $('ul.tabbed-primary-navigation');
+		} else if($("ul[role='navigation']").length) {
+			return $("ul[role='navigation']");
+		} else if( $("ul#global-header").length ) {
+			return $("ul#global-header");
+		} else {
+			console.log('no nav');
+			return false;
+		}
 	}
 
 	//Insert better browse into navigation bar
 	function appendMenu() {
+		mainNavBar = checkNavBar();
 		var bbList = "";
 		for (var i = 0; i <= hiddenCategories.length - 1; i++) {
 			var thisUrl = '';
@@ -247,23 +256,18 @@ $(window).bind("load", function() {
 	}
 
 	//Check if menu exists, if not, menu appears after clicking .profile-link
-	if( $("ul[role='navigation']").length ) {
-		appendMenu();
-	 } else if ($("ul#global-header").length) {
-		appendMenu();
-	 } else {
-		$(".profile-link").click(function(){
-			setTimeout(function(){
-				mainNavBar = $("ul[role='navigation']");
-				appendMenu();
-			}, 10)
-		});
-	}
+	appendMenu();
+
+	// append menu after clicking .profile-link
+	$(".profile-link").on('click', function(){
+		setTimeout(function(){
+			appendMenu();
+		}, 10)
+	});
 
 	//Append menu after clicking back button after watching a film
 	$(document).on("click", ".button-bvuiExit, .WatchNext-action-buttons a:first-child", function(){
 		setTimeout(function() {
-			mainNavBar = $("ul[role='navigation']");
 			appendMenu();
 		}, 100);
 	});
