@@ -5,6 +5,8 @@ var concat = require('gulp-concat');
 var babel  = require('gulp-babel');
 var zip = require('gulp-zip');
 
+var chromeManifest = require('./manifest.json');
+
 gulp.task('styles', function() {
 	gulp.src('scss/**/*.scss')
 		.pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
@@ -20,7 +22,7 @@ gulp.task('scripts', function() {
 
 gulp.task('zip', function() {
 	return gulp.src(['manifest.json', '*.png', 'background.js', 'betterbrowse.js', 'inject.js', 'style.css'])
-		.pipe(zip('netflix_better_browse.zip'))
+		.pipe(zip('netflix_better_browse_' + chromeManifest.version + '.zip'))
 		.pipe(gulp.dest(''));
 });
 

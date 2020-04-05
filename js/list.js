@@ -785,6 +785,10 @@ var hiddenCategories = [
 		genreId: '972'
 	},
 	{
+		name: 'Studio Ghibli',
+		genreId: '81227213'
+	},
+	{
 		name: 'Supernatural Horror Movies',
 		genreId: '42023'
 	},

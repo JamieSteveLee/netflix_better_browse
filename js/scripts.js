@@ -31,13 +31,13 @@ $(window).bind("load", function() {
 		};
 		$(mainNavBar).append(
 			'<li id="better-browse"><span>Browse all</span><span class="caret" role="presentation"></span>'+
-			'<div class="triangle"></div>'+
-			'<ul>'+
-			'<form id="bb-form">'+
-			'<input type="textbox" id="bb-search" autocomplete="off" placeholder="Search..." />'+
-			'</form>'+
-			bbList +
-			'</ul>'+
+				'<div class="triangle"></div>'+
+				'<ul>'+
+					'<form id="bb-form">'+
+						'<input type="textbox" id="bb-search" autocomplete="off" placeholder="Search..." />'+
+					'</form>'+
+					bbList +
+				'</ul>'+
 			'</li>'
 		);
 
@@ -147,6 +147,9 @@ $(window).bind("load", function() {
 				case 'german':
 					goToUrl(inputCode, '/browse/genre/58886');
 					break;
+				case 'ghibli':
+					goToUrl(inputCode, '/browse/genre/81227213');
+					break;
 				case 'halloween':
 					goToUrl(inputCode, '/browse/genre/108663');
 					break;
@@ -198,6 +201,7 @@ $(window).bind("load", function() {
 				case 'thriller':
 					goToUrl(inputCode, '/browse/genre/8933');
 					break;
+
 				case 'fassbender':
 					goToUrl(inputCode, '/browse/person/30036344');
 					break;
@@ -215,22 +219,25 @@ $(window).bind("load", function() {
 				case 'hdr':
 					goToUrl(inputCode, '/search?q=hdr&suggestionId=1900000_merch');
 					break;
-				case 'brba':
-					goToUrl(inputCode, '/title/70143836');
-					break;
+
 				case 'always sunny':
 				case 'iasip':
 					goToUrl(inputCode, '/title/70136141');
 					break;
 				case 'office':
+				case 'the office':
 					goToUrl(inputCode, '/title/70136112');
 					break;
 				case 'peepshow':
+				case 'peep show':
 					goToUrl(inputCode, '/title/70217140');
 					break;
-				case 'ram':
-					goToUrl(inputCode, '/title/80014749');
+				case 'tiger':
+				case 'tiger king':
+				case 'the tiger king':
+					goToUrl(inputCode, '/title/81130220');
 					break;
+
 				case 'jambon':
 					messageAlert(inputCode, 'Hello there');
 					break;
@@ -241,8 +248,11 @@ $(window).bind("load", function() {
 					ga('send', 'event', 'Shortcut', 'InputCode', inputCode);
 					$(location).attr('href', randomCatUrl);
 					break;
+
 				default:
-					ga('send', 'event', 'Mistype', 'InputCode', inputCode);
+					ga('send', 'event', 'NetflixSearch', 'InputCode', inputCode);
+					var thisUrl = '/search?q=' + inputCode;
+					$(location).attr('href', thisUrl);
 			}
 		});
 
